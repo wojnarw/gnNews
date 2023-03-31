@@ -1,0 +1,29 @@
+.popup {
+  z-index: 2;
+  background-color: white;
+  position: fixed;
+  border-radius: 6px;
+  box-shadow: 5 20px 80px rgba(0, 0, 0, 0.4);
+  margin: 0 auto;
+  padding: 2rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 35%;
+}
+
+.popupBg {
+  z-index: 1;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.closeBtn {
+    float: right;
+    cursor: pointer;
+    font-weight: bold;
+}

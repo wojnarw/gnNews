@@ -1,0 +1,40 @@
+.listView {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: stretch;
+    gap: 15px;
+}
+
+.listView .articleImage {
+    max-height: 120px;
+    max-width: 30%;
+    /* float: left; */
+    margin-right: 1rem;
+}
+
+.listView > div {
+    display: flex;
+}
+
+.panelsView {
+    display: flex;
+    gap: 15px;
+    flex-flow: column wrap;
+    flex-direction: row;
+}
+
+
+.panelsView > div {
+    min-width: 48%;
+    /* min-height: 300px; */
+    overflow: hidden;
+    width: 200px;
+    height: auto;
+}
+
+.panelsView img {
+    max-height: 350px;
+    width: 100%;
+}
