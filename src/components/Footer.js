@@ -24,7 +24,9 @@ const Footer = () => {
     return (
         <div className={classes.footer}>
             <span>All rights reserved, Wojciech Wojnar, 2023</span>
-            <span className={classes.clock}>Time: {currentTime}</span>
+            <span className={classes.clock}>
+                Time: {currentTime}
+            </span>
         </div>
     )
 }

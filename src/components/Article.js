@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import Popup from "../components/Popup";
 import { Link } from "react-router-dom";
 import classes from "../styles/Article.module.css";
+import { useSelector } from "react-redux";
 
 const Article = (props) => {
+    const [popupVisible, setPopupVisible] = useState(false);
+    const viewType = useSelector(state => state.viewType);
 
     const {
         article: {
@@ -12,10 +16,21 @@ const Article = (props) => {
             url: articleUrl,
             urlToImage: imageUrl,
             publishedAt: articleDatetime,
+            content: articleContent,
             source: {
                 name: sourceName
-            }},
+            } },
     } = props;
+
+    const openPopup = () => {
+        setPopupVisible(!popupVisible)
+    }
+
+    let articleShortText;
+    if (articleDescription || articleContent) {
+        articleShortText = articleDescription || articleContent;
+        articleShortText = articleShortText.substring(0, 80).trim() + "...";
+    }
 
     let articleFooter;
     if (articleAuthor && sourceName) articleFooter = `By ${articleAuthor} - ${sourceName}`;
@@ -23,24 +38,18 @@ const Article = (props) => {
     else if (sourceName) articleFooter = `Source: ${sourceName}`;
 
     return (
-        <div className={classes.card}>
-
-            {imageUrl && <Link target="_blank" className={classes.invisibleLink} to={articleUrl}><div className={classes.articleImage}><img src={imageUrl} /></div></Link>}
-
+        <div onClick={openPopup} className={viewType === "panels" ? classes.panelCard : classes.listCard}>
+            {(viewType === "panels" && imageUrl) && <div className={classes.articleImage}><img src={imageUrl} /></div>}
             <div className={classes.content}>
-                <Link target="_blank" className={classes.invisibleLink} to={articleUrl}>
-                    <h4>{articleTitle}</h4>
-                    <div className={classes.timestamp}>
-                        <span>{articleDatetime}</span></div>
-
-                    {articleDescription && <div>{articleDescription}</div>}<br />
-                    {/* {props.article.content && <div>{props.article.content}</div>} */}
-                </Link>
-
-                {articleFooter && <div className={classes.authors}>{articleFooter}</div>}
+                <h4>{articleTitle}</h4>
+                {(viewType === "panels" && articleShortText) && <div>{articleShortText}</div>}
+                <div className={classes.timestamp}>
+                    <span>{articleDatetime}</span>
+                    {sourceName && <div className={classes.authors}>{sourceName}</div>}
+                </div>
             </div>
-            {/* {articleAuthor && <Link className={classes.invisibleLink} to={"author/" + articleAuthor}><span>{articleAuthor}</span></Link>} */}
-
+            {popupVisible && <Popup title={articleTitle} text={articleDescription} subtext={articleContent} url={articleUrl} imageUrl={imageUrl}
+                footer={articleFooter} hidePopup={_ => setPopupVisible(false)} />}
         </div>
     );
 }
