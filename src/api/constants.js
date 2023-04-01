@@ -1,15 +1,13 @@
-const URL = "uuu https://newsapi.org/v2/";
+// Get API key here:
+// https://newsapi.org/docs/get-started
+
+const URL = "https://newsapi.org/v2/";
 const KEY = "2f2f15db7aa0476493889dd12ffdc81e";
 
-//endpoints:
 const API = {
-    KEY: KEY,
-    POSTS: URL + "posts",
-    LAST: URL + "posts/last",
-    TOP: `${URL}top-headlines?country=pl&apiKey=${KEY}`,
-    NEW: URL + "post/new",
-    POST: URL + "post/",
-    AUTHOR: URL + "author/"
+    TOP: `${URL}top-headlines?apiKey=${KEY}&`,
+    CACHE_LIFE: 30 * 60 * 1000, // 30 minutes, free APIs have very low requests limit
+    COUNTRY_KEY_LENGTH: 2, // allowed country code length in URL
 }
 
 export default API;

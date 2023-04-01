@@ -1,23 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import store from './store/store';
 import { BrowserRouter } from 'react-router-dom';
 import './styles/index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { Provider } from 'react-redux'
-// import rootReducer from './reducers'
-import store from './app/store'
+import { Provider } from 'react-redux';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-// const store = createStore(rootReducer)
+
 root.render(
-  //TODO: strict mode rerenders components and causes double requests to API in useEffect
-  // <React.StrictMode>
   <Provider store={store}>
     <BrowserRouter>
       <App />
     </BrowserRouter>
-  {/* // </React.StrictMode> */}
   </Provider>
 );
 
