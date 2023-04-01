@@ -4,18 +4,26 @@
     flex-wrap: nowrap;
     justify-content: flex-start;
     align-items: stretch;
-    gap: 15px;
+    gap: 5px;
+    width: 100%;
 }
 
-.listView .articleImage {
-    max-height: 120px;
+/* .listView .articleImage {
+    display: none;
+    /* max-height: 120px;
     max-width: 30%;
-    /* float: left; */
     margin-right: 1rem;
-}
+    max-width: 150px;
+    max-height: 150px;
+} */
 
 .listView > div {
-    display: flex;
+    /* display: flex;
+    gap: 15px; */
+}
+
+.listView > div img {
+    /* max-height: 150px; */
 }
 
 .panelsView {
@@ -23,18 +31,5 @@
     gap: 15px;
     flex-flow: column wrap;
     flex-direction: row;
-}
-
-
-.panelsView > div {
-    min-width: 48%;
-    /* min-height: 300px; */
-    overflow: hidden;
-    width: 200px;
-    height: auto;
-}
-
-.panelsView img {
-    max-height: 350px;
     width: 100%;
 }

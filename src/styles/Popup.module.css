@@ -1,15 +1,47 @@
-.popup {
-  z-index: 2;
-  background-color: white;
-  position: fixed;
-  border-radius: 6px;
-  box-shadow: 5 20px 80px rgba(0, 0, 0, 0.4);
-  margin: 0 auto;
-  padding: 2rem;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 35%;
+@media only screen and (min-width: 1024px) {
+  .popup {
+    z-index: 2;
+    background-color: white;
+    position: fixed;
+    border-radius: 6px;
+    box-shadow: 5 20px 80px rgba(0, 0, 0, 0.4);
+    margin: 0 auto;
+    padding: 2rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 45%;
+  }
+}
+
+@media only screen and (max-width: 1023px) {
+  .popup {
+    z-index: 2;
+    background-color: white;
+    position: fixed;
+    border-radius: 6px;
+    box-shadow: 5 20px 80px rgba(0, 0, 0, 0.4);
+    margin: 0 auto;
+    padding: 2rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 65%;
+  }
+}
+
+.popup a {
+  color: black;
+}
+
+.popup a:hover {
+  color: black;
+  text-decoration: none;
+}
+
+.popup p {
+  color: black;
+  font-size: medium;
 }
 
 .popupBg {
@@ -23,7 +55,27 @@
 }
 
 .closeBtn {
-    float: right;
-    cursor: pointer;
-    font-weight: bold;
+  float: right;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.popup img {
+  width: 100%;
+}
+
+.popup h1,
+.popup h2,
+.popup h3,
+.popup h4 {
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.popup.footer {
+  color: #8b8b8b;
+  font-size: 0.8rem;
+  padding: 0;
+  margin: 0;
+  float: right;
 }
