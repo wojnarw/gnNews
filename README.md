@@ -1,5 +1,5 @@
 # gnNews  
-A news website built with React, Redux Toolkit.  
+A news website built with React, Redux Toolkit in around 12 hours.  
 
 Uses news API with caching articles for 30 minutes by default (mostly due to limitations of free APIs).  
 
